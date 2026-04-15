@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import GradientCards from './components/GradientCards';
 import EtheralShadow from './components/EtheralShadow';
 import Spline from '@splinetool/react-spline';
+import avatarImg from './assets/avatar.png';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -140,7 +141,7 @@ const App = () => {
             <div className="hero-avatar-side">
               <div className="avatar-wrapper">
                 <div className="avatar-container animate-float">
-                  <img src="/src/assets/avatar.png" alt="Avatar" className="avatar-img" />
+                  <img src={avatarImg} alt="Avatar" className="avatar-img" />
                 </div>
                 <div className="avatar-glow"></div>
               </div>
@@ -276,7 +277,7 @@ const App = () => {
                   
                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link-btn">
                     <div className="btn-avatar animate-float-fast">
-                      <img src="/src/assets/avatar.png" alt="3D Avatar" className="mini-avatar" />
+                      <img src={avatarImg} alt="3D Avatar" className="mini-avatar" />
                     </div>
                     <span className="btn-text">View Live App</span>
                     <Icons.ExternalLink />
