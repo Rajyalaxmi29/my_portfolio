@@ -220,26 +220,21 @@ const App = () => {
             <svg className="animated-line" viewBox="0 0 100 100" preserveAspectRatio="none">
               <path 
                 d="M 50 0 C 10 15, 90 35, 50 50 C 10 65, 90 85, 50 100" 
-                stroke="rgba(255,255,255,0.05)" 
+                stroke="var(--accent-purple)" 
                 strokeWidth="4" 
+                strokeOpacity="0.15"
                 fill="none" 
                 vectorEffect="non-scaling-stroke" 
               />
               <path 
                 d="M 50 0 C 10 15, 90 35, 50 50 C 10 65, 90 85, 50 100" 
-                stroke="url(#purpleBlue)" 
+                stroke="var(--accent-purple)" 
                 strokeWidth="4" 
                 fill="none" 
                 vectorEffect="non-scaling-stroke"
                 className="scroll-path"
                 pathLength="100"
               />
-              <defs>
-                <linearGradient id="purpleBlue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#a855f7" />
-                  <stop offset="100%" stopColor="#3b82f6" />
-                </linearGradient>
-              </defs>
             </svg>
           </div>
 
@@ -248,19 +243,22 @@ const App = () => {
               title: "Personal Portfolio Website",
               stack: "React, MongoDB, JavaScript, HTML, Bootstrap",
               desc: "Developed a personal portfolio website showcasing projects like FoodMart, ATM, and MyStore. Built a responsive UI using React and Bootstrap with full-stack integration using MongoDB, focusing on user-centric design and smooth navigation.",
-              link: "https://rajyalaxmi29-github-io.vercel.app/p4"
+              link: "https://rajyalaxmi29-github-io.vercel.app/p4",
+              icons: ["/java.jpg", "/db.jpg", "/other.jpg"]
             },
             {
               title: "Startup & Social Innovation Platform",
               stack: "React, Node.js, Express, MongoDB, AI",
               desc: "Built a full-stack platform to support startups and social innovation initiatives with a user-friendly interface. Implemented scalable backend features and structured UI/UX for managing ideas, users, and workflows. Integrated AI-based insights and recommendation features to enhance decision-making.",
-              link: "https://startupsim-new.vercel.app/"
+              link: "https://startupsim-new.vercel.app/",
+              icons: ["/node.jpg", "/python.jpg", "/supabase.jpg"]
             },
             {
               title: "ProTask AI",
               stack: "React, TypeScript, Supabase, PostgreSQL, Vercel",
               desc: "Developed a full-stack task management application with secure authentication and database integration using Supabase. Implemented user-specific CRUD operations with Row Level Security (RLS) and deployed on Vercel.",
-              link: "https://protask-ai.vercel.app/login"
+              link: "https://protask-ai.vercel.app/login",
+              icons: ["/node.jpg", "/other.jpg", "/python.jpg"]
             }
           ].map((project, index) => (
             <div 
@@ -270,6 +268,16 @@ const App = () => {
               <div className={`timeline-node ${activeNode >= index + 1 ? 'node-active' : ''}`}></div>
               <div className="timeline-content card-3d">
                 <div className="card-glow"></div>
+                
+                {/* Surrounding Icons */}
+                <div className="surrounding-icons">
+                  {project.icons?.map((icon, i) => (
+                    <div key={i} className={`s-icon s-icon-${i}`}>
+                      <img src={icon} alt="tech icon" />
+                    </div>
+                  ))}
+                </div>
+
                 <div className="content-inner">
                   <h3>{project.title}</h3>
                   <div className="tech-stack-label">{project.stack}</div>

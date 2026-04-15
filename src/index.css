@@ -291,7 +291,7 @@ button {
 .scroll-indicator .line {
   width: 1px;
   height: 50px;
-  background: linear-gradient(to bottom, var(--accent-purple), transparent);
+  background: var(--accent-purple);
 }
 
 @media (max-width: 1024px) {
@@ -584,6 +584,73 @@ button {
   text-transform: uppercase;
 }
 
+/* Surrounding Icons - Large & Opposite Corners */
+.surrounding-icons {
+  position: absolute;
+  inset: -30px; /* Expand slightly outside card */
+  pointer-events: none;
+  z-index: 5; /* Lower than content but higher than card bg */
+}
+
+.s-icon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: floatLarge 5s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.s-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+}
+
+/* Specific Positions: Opposite Corners */
+.s-icon-0 {
+  top: 0;
+  left: -50px;
+}
+
+.s-icon-1 {
+  bottom: 0;
+  right: -50px;
+  animation-delay: -2.5s;
+}
+
+.s-icon-2 {
+  bottom: -40px;
+  left: 20%;
+  width: 80px;
+  height: 80px;
+  animation-delay: -1s;
+}
+
+.timeline-content:hover .s-icon {
+  transform: scale(1.1) rotate(5deg);
+  border-color: var(--accent-purple);
+  opacity: 1;
+}
+
+@keyframes floatLarge {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+
+
+
 .timeline-content p {
   color: var(--text-muted);
   line-height: 1.7;
@@ -645,6 +712,26 @@ button {
     flex-direction: column;
     align-items: flex-end;
   }
+
+  .surrounding-icons {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    gap: 12px;
+    margin-top: 20px;
+    justify-content: flex-start;
+    inset: auto;
+  }
+  
+  .s-icon {
+    position: static;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    animation: none;
+  }
+
+
 
   .timeline-content {
     width: calc(100% - 60px);
