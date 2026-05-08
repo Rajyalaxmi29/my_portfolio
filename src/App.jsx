@@ -132,9 +132,9 @@ const App = () => {
               </p>
               
               <div className="social-links">
-                <a href="#"><Icons.Github /></a>
-                <a href="#"><Icons.Linkedin /></a>
-                <a href="#"><Icons.Twitter /></a>
+                <a href="https://github.com/Rajyalaxmi29" target="_blank" rel="noopener noreferrer"><Icons.Github /></a>
+                <a href="https://www.linkedin.com/in/rajyalaxmi-k-794b74327/" target="_blank" rel="noopener noreferrer"><Icons.Linkedin /></a>
+                <a href="mailto:rajyalaxmikunchala06@gmail.com"><Icons.Mail /></a>
               </div>
             </div>
 
