@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GradientCards from './components/GradientCards';
 import EtheralShadow from './components/EtheralShadow';
-import Spline from '@splinetool/react-spline';
+import { InteractiveRobotSpline } from './components/ui/interactive-3d-robot';
 import avatarImg from './assets/avatar.png';
 
 const App = () => {
@@ -131,10 +131,16 @@ const App = () => {
                 A passionate Full Stack Developer focused on building impactful and innovative solutions. 
               </p>
               
-              <div className="social-links">
-                <a href="https://github.com/Rajyalaxmi29" target="_blank" rel="noopener noreferrer"><Icons.Github /></a>
-                <a href="https://www.linkedin.com/in/rajyalaxmi-k-794b74327/" target="_blank" rel="noopener noreferrer"><Icons.Linkedin /></a>
-                <a href="mailto:rajyalaxmikunchala06@gmail.com"><Icons.Mail /></a>
+              <div className="hero-actions">
+                <a href="/fullstack -resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn">
+                  Download Resume
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </a>
+                <div className="social-links">
+                  <a href="https://github.com/Rajyalaxmi29" target="_blank" rel="noopener noreferrer"><Icons.Github /></a>
+                  <a href="https://www.linkedin.com/in/rajyalaxmi-k-794b74327/" target="_blank" rel="noopener noreferrer"><Icons.Linkedin /></a>
+                  <a href="mailto:rajyalaxmikunchala06@gmail.com"><Icons.Mail /></a>
+                </div>
               </div>
             </div>
 
@@ -207,8 +213,8 @@ const App = () => {
       {/* Journey / Projects Section */}
       <section id="projects" className="journey-section reveal">
         <div className="spline-robot-container">
-          <Spline 
-            scene="https://prod.spline.design/J5jdB1z34B7OO0A0/scene.splinecode" 
+          <InteractiveRobotSpline 
+            scene="https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode" 
           />
         </div>
         <h2 className="section-title">
@@ -219,7 +225,7 @@ const App = () => {
           <div className="timeline-svg-wrapper">
             <svg className="animated-line" viewBox="0 0 100 100" preserveAspectRatio="none">
               <path 
-                d="M 50 0 C 10 15, 90 35, 50 50 C 10 65, 90 85, 50 100" 
+                d="M 50 0 L 50 100" 
                 stroke="var(--accent-purple)" 
                 strokeWidth="4" 
                 strokeOpacity="0.15"
@@ -227,7 +233,7 @@ const App = () => {
                 vectorEffect="non-scaling-stroke" 
               />
               <path 
-                d="M 50 0 C 10 15, 90 35, 50 50 C 10 65, 90 85, 50 100" 
+                d="M 50 0 L 50 100" 
                 stroke="var(--accent-purple)" 
                 strokeWidth="4" 
                 fill="none" 

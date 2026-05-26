@@ -257,6 +257,37 @@ button {
   z-index: 1;
 }
 
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: var(--glass-bg);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 50px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+}
+
+.resume-btn:hover {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: var(--accent-purple);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+}
+
 .social-links {
   display: flex;
   gap: 1.5rem;
@@ -1314,27 +1345,32 @@ button {
 /* Footer & Global Animation */
 .spline-robot-container {
   position: absolute;
-  top: 15%;
-  right: 10%;
-  width: 300px;
-  height: 300px;
+  top: 5%;
+  right: 5%;
+  width: 400px;
+  height: 400px;
   z-index: 5;
-  pointer-events: none;
-  opacity: 1;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--accent-purple);
+  pointer-events: auto;
   background: transparent;
-  box-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
+  /* Physically cut out the bottom-right corner where the Spline watermark renders */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), calc(100% - 180px) calc(100% - 60px), calc(100% - 180px) 100%, 0 100%);
 }
 
 .spline-robot-container canvas {
-  width: 160% !important;
-  height: 160% !important;
-  position: absolute;
-  left: -30% !important;
-  top: -30% !important;
-  transform: translateX(65px) !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Hide the "Built with Spline" watermark */
+.spline-robot-container a,
+a[href*="spline.design"],
+a[href*="spline"],
+#logo,
+.spline-watermark {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 @media (max-width: 1200px) {
