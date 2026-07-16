@@ -75,6 +75,15 @@ const App = () => {
     ),
     X: () => (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    ),
+    Briefcase: () => (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+    ),
+    GraduationCap: () => (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+    ),
+    Calendar: () => (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
     )
   };
 
@@ -90,6 +99,7 @@ const App = () => {
 
           <div className="nav-links desktop-only">
             <a href="#about" className="nav-link">About</a>
+            <a href="#experience" className="nav-link">Experience</a>
             <a href="#projects" className="nav-link">Journey</a>
             <a href="#designs" className="nav-link">Designs</a>
             <a href="#contact" className="nav-link">Contact</a>
@@ -108,6 +118,7 @@ const App = () => {
       {isMenuOpen && (
         <div className="mobile-menu">
           <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
+          <a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
           <a href="#projects" onClick={() => setIsMenuOpen(false)}>Journey</a>
           <a href="#designs" onClick={() => setIsMenuOpen(false)}>Designs</a>
           <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
@@ -205,6 +216,88 @@ const App = () => {
             <div className="card-content">
               <h3>Data & AI Integration</h3>
               <p>I explore <strong>Data Analysis</strong> and integrate AI-driven features into my projects to make them smarter and more impactful.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience & Education Section */}
+      <section id="experience" className="experience-section reveal">
+        <h2 className="section-title">
+          EXPERIENCE & <span className="gradient-text">EDUCATION</span>
+        </h2>
+
+        <div className="experience-grid">
+          {/* Work Experience Column */}
+          <div className="experience-column">
+            <h3 className="column-title">
+              <Icons.Briefcase /> Work Experience
+            </h3>
+            
+            <div className="experience-card card-3d">
+              <div className="card-glow"></div>
+              <div className="card-content">
+                <div className="card-header-row">
+                  <span className="time-badge">
+                    <Icons.Calendar /> 2026 — Present
+                  </span>
+                </div>
+                <h4 className="job-title">Product Development Apprentice</h4>
+                <div className="org-name">Gennovate Foundation Club • Hyderabad, India</div>
+                <ul className="bullet-list">
+                  <li>Contributed to product ideation and development cycles as part of a student-led innovation club focused on real-world problem-solving.</li>
+                  <li>Collaborated with cross-functional peers to prototype solutions, gather user feedback, and iterate on product design.</li>
+                  <li>Applied full-stack development skills to build and demo internal tools supporting club operations and events.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Education Column */}
+          <div className="experience-column">
+            <h3 className="column-title">
+              <Icons.GraduationCap /> Education
+            </h3>
+
+            <div className="experience-card card-3d">
+              <div className="card-glow"></div>
+              <div className="card-content">
+                <div className="card-header-row">
+                  <span className="time-badge">
+                    <Icons.Calendar /> 2023 — 2027
+                  </span>
+                  <span className="merit-badge">CGPA: 8.2 / 10.0</span>
+                </div>
+                <h4 className="job-title">B.Tech in Computer Science AI & ML</h4>
+                <div className="org-name">Geethanjali College of Engineering and Technology</div>
+                
+                <div className="coursework-section">
+                  <h5>Key Coursework:</h5>
+                  <div className="coursework-chips">
+                    {[
+                      "Data Structures", "Algorithms Analysis", "Database Management", 
+                      "Artificial Intelligence", "Machine Learning", "Internet Technology", 
+                      "Software Methodology", "Computer Architecture"
+                    ].map((course, idx) => (
+                      <span key={idx} className="course-chip">{course}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="experience-card card-3d">
+              <div className="card-glow"></div>
+              <div className="card-content">
+                <div className="card-header-row">
+                  <span className="time-badge">
+                    <Icons.Calendar /> 2021 — 2023
+                  </span>
+                  <span className="merit-badge">Score: 96.6%</span>
+                </div>
+                <h4 className="job-title">Intermediate Education (MPC)</h4>
+                <div className="org-name">Narayana Junior College • Hyderabad, India</div>
+              </div>
             </div>
           </div>
         </div>
