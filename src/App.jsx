@@ -4,10 +4,54 @@ import EtheralShadow from './components/EtheralShadow';
 import { InteractiveRobotSpline } from './components/ui/interactive-3d-robot';
 import avatarImg from './assets/avatar.png';
 
+const VIDEO_URL = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_150901_c45b90ec-18d7-42ff-90e2-b95d7109e330.mp4";
+
+const SERVICES = [
+  "Website",
+  "Mobile App",
+  "Web App",
+  "E-Commerce",
+  "Visual Identity",
+  "3D & Motion",
+  "Digital Marketing",
+  "Growth & Consulting",
+  "Other"
+];
+
+const SocialBtn = ({ icon: Icon, bgClass, href }) => (
+  <a
+    href={href || "#"}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`w-8 h-8 rounded-xl flex items-center justify-center hover:opacity-80 transition-opacity ${bgClass}`}
+  >
+    <Icon />
+  </a>
+);
+
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeNode, setActiveNode] = useState(0);
-  const navItems = ['About', 'Skills', 'Projects', 'Contact'];
+  const [selected, setSelected] = useState([]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const toggleService = (service) => {
+    setSelected(prev =>
+      prev.includes(service) ? prev.filter(s => s !== service) : [...prev, service]
+    );
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    await new Promise(r => setTimeout(r, 1000));
+    setSending(false);
+    setSent(true);
+  };
 
   // Section Reveal Observer for smooth scrolling entry
   React.useEffect(() => {
@@ -90,6 +134,15 @@ const App = () => {
     ),
     Award: () => (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
+    ),
+    Instagram: () => (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+    ),
+    CircleIcon: () => (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle></svg>
+    ),
+    CheckIcon: () => (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
     )
   };
 
@@ -98,89 +151,205 @@ const App = () => {
       {/* Global Animated Background */}
       <EtheralShadow isFixed={true} />
 
-      {/* Navigation */}
-      <nav className="navbar">
-        <div className="nav-content">
-          <div className="logo">Kunchala Rajyalaxmi</div>
+      {/* FULL-SCREEN VIDEO BACKGROUND LANDING PAGE */}
+      <div className="p-3 sm:p-4 md:p-6 bg-white min-h-screen relative z-10">
+        <div className="rounded-2xl sm:rounded-3xl overflow-hidden min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-[calc(100vh-48px)] relative shadow-2xl">
+          {/* Background Video */}
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            src={VIDEO_URL}
+          />
+          <div className="absolute inset-0 bg-black/30 pointer-events-none" />
 
-          <div className="nav-links desktop-only">
-            <a href="#about" className="nav-link">About</a>
-            <a href="#skills" className="nav-link">Skills</a>
-            <a href="#experience" className="nav-link">Experience</a>
-            <a href="#projects" className="nav-link">Journey</a>
-            <a href="#awards" className="nav-link">Awards</a>
-            <a href="#designs" className="nav-link">Designs</a>
-            <a href="#contact" className="nav-link">Contact</a>
-          </div>
+          {/* Content Layer */}
+          <div className="relative z-10 flex flex-col min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-full p-4 sm:p-6 md:p-8 gap-6 justify-between">
+            
+            {/* Navbar (top) */}
+            <header className="bg-white/70 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 w-full sm:w-auto flex items-center justify-between sm:justify-start gap-3 sm:gap-6 self-start">
+              <div className="flex items-center gap-2.5">
+                <svg viewBox="0 0 256 256" className="w-8 h-8 shrink-0">
+                  <path d="M 256 256 L 128 256 L 0 128 L 128 128 Z M 256 128 L 128 128 L 0 0 L 128 0 Z" fill="#000000" />
+                </svg>
+                <span className="font-bold tracking-tight text-gray-900 text-base">Rajyalaxmi</span>
+              </div>
 
-          <div className="nav-actions">
-            <button className="cta-button">Contact Me</button>
-            <button className="mobile-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <Icons.X /> : <Icons.Menu />}
-            </button>
-          </div>
-        </div>
-      </nav>
+              <nav className="hidden sm:flex items-center gap-5">
+                <a href="#about" className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap">About</a>
+                <a href="#skills" className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap">Skills</a>
+                <a href="#experience" className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap">Experience</a>
+                <a href="#projects" className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap">Projects</a>
+                <a href="#awards" className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap">Awards</a>
+                <a href="#designs" className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap">Designs</a>
+                <a href="#contact" className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap">Contact</a>
+              </nav>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="mobile-menu">
-          <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-          <a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
-          <a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
-          <a href="#projects" onClick={() => setIsMenuOpen(false)}>Journey</a>
-          <a href="#awards" onClick={() => setIsMenuOpen(false)}>Awards</a>
-          <a href="#designs" onClick={() => setIsMenuOpen(false)}>Designs</a>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
-        </div>
-      )}
+              <a
+                href="#contact"
+                className="bg-black text-white text-sm font-medium px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition-colors ml-auto whitespace-nowrap"
+              >
+                Start a project
+              </a>
+            </header>
 
-      {/* Hero Section */}
-      <main className="hero">
-        <div className="hero-background-text">
-          <h1 className="huge-text">RAJYALAXMI</h1>
-        </div>
+            {/* Spacer */}
+            <div className="flex-1 min-h-[2rem]" />
 
-        <div className="hero-content fade-in">
-          <div className="hero-grid">
-            <div className="hero-text-side">
-              <div className="badge">AVAILABLE FOR PROJECTS</div>
-              <h2 className="main-title">
-                HI, I’M <span className="gradient-text">RAJYALAXMI</span>
-              </h2>
-              <p className="description">
-                Motivated Computer Science student specializing in Artificial Intelligence and Machine Learning with hands-on experience in full-stack web development. Proficient in the MERN stack and modern web technologies, building scalable, user-friendly applications.
-              </p>
+            {/* Bottom Row (Headline + Form) */}
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
               
-              <div className="hero-actions">
-                <a href="/fullstack -resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn">
-                  Download Resume
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                </a>
-                <div className="social-links">
-                  <a href="https://github.com/Rajyalaxmi29" target="_blank" rel="noopener noreferrer"><Icons.Github /></a>
-                  <a href="https://www.linkedin.com/in/rajyalaxmi-k-794b74327/" target="_blank" rel="noopener noreferrer"><Icons.Linkedin /></a>
-                  <a href="mailto:rajyalaxmikunchala06@gmail.com"><Icons.Mail /></a>
+              {/* Headline (left) */}
+              <div className="flex flex-col gap-4 lg:max-w-lg xl:max-w-2xl shrink-0 text-left">
+                <div className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wider w-fit">
+                  AVAILABLE FOR PROJECTS
+                </div>
+                <p className="text-white text-3xl sm:text-4xl xl:text-5xl font-medium leading-tight drop-shadow-lg">
+                  We craft bold ideas<br />and ship them as <span style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic", fontWeight: 400 }}>products</span>
+                </p>
+                <p className="text-white/90 text-sm sm:text-base drop-shadow max-w-md leading-relaxed">
+                  Hi, I'm <strong>Rajyalaxmi</strong> — a B.Tech AI & ML student and Full-Stack Developer building scalable MERN applications and intelligent AI integrations.
+                </p>
+                <div className="flex items-center gap-3 pt-1">
+                  <a
+                    href="/fullstack -resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/90 hover:bg-white text-black font-semibold px-4.5 py-2.5 rounded-xl text-sm transition shadow-lg flex items-center gap-2"
+                  >
+                    <span>Download Resume</span>
+                    <Icons.ExternalLink />
+                  </a>
+                  <a
+                    href="#projects"
+                    className="bg-black/40 hover:bg-black/60 backdrop-blur-md text-white border border-white/20 font-medium px-4.5 py-2.5 rounded-xl text-sm transition"
+                  >
+                    View My Work
+                  </a>
                 </div>
               </div>
-            </div>
 
-            <div className="hero-avatar-side">
-              <div className="avatar-wrapper">
-                <div className="avatar-container animate-float">
-                  <img src={avatarImg} alt="Avatar" className="avatar-img" />
-                </div>
-                <div className="avatar-glow"></div>
+              {/* Contact Form Card (right) */}
+              <div className="w-full lg:w-[min(480px,45%)] shrink-0 bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden p-4 sm:p-6 flex flex-col gap-4 text-left">
+                {sent ? (
+                  <div className="flex flex-col items-center justify-center py-8 gap-3 text-center">
+                    <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-xl text-green-600 font-bold">
+                      ✓
+                    </div>
+                    <h3 className="text-base font-semibold text-gray-900">You're all set!</h3>
+                    <p className="text-sm text-gray-500">Expect a reply within 24 hours.</p>
+                    <button
+                      type="button"
+                      onClick={() => { setSent(false); setSending(false); setName(''); setEmail(''); setMessage(''); setSelected([]); }}
+                      className="mt-2 text-xs font-semibold text-blue-600 hover:underline"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <h3 className="text-xl sm:text-2xl font-semibold text-black tracking-tight">
+                      Say hello! 👋
+                    </h3>
+
+                    {/* Email + Socials Row */}
+                    <div className="flex flex-row items-center justify-between gap-3 bg-gray-50 rounded-2xl px-4 py-2.5">
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Drop us a line</span>
+                        <a href="mailto:rajyalaxmikunchala06@gmail.com" className="text-blue-600 font-semibold text-sm hover:underline truncate">
+                          hello@forma.co
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <SocialBtn icon={() => <Icons.Twitter />} bgClass="bg-gray-100 text-gray-800" href="https://twitter.com" />
+                        <SocialBtn icon={() => <Icons.CircleIcon />} bgClass="bg-pink-100 text-pink-500" href="https://github.com/Rajyalaxmi29" />
+                        <SocialBtn icon={() => <Icons.Instagram />} bgClass="bg-orange-100 text-orange-400" href="https://instagram.com" />
+                        <SocialBtn icon={() => <Icons.Linkedin />} bgClass="bg-blue-100 text-blue-600" href="https://www.linkedin.com/in/rajyalaxmi-k-794b74327/" />
+                      </div>
+                    </div>
+
+                    {/* OR Divider */}
+                    <div className="flex items-center gap-3">
+                      <span className="flex-1 h-px bg-gray-200" />
+                      <span className="text-gray-400 font-medium text-sm">OR</span>
+                      <span className="flex-1 h-px bg-gray-200" />
+                    </div>
+
+                    {/* Form */}
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                      <label className="text-sm font-medium text-black">
+                        Tell us about your vision
+                      </label>
+
+                      <div className="flex flex-col sm:flex-row gap-2">
+                        <input
+                          type="text"
+                          required
+                          placeholder="Full name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          className="flex-1 min-w-0 text-sm px-3 py-2.5 rounded-xl border border-gray-200 bg-transparent placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition"
+                        />
+                        <input
+                          type="email"
+                          required
+                          placeholder="Email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="flex-1 min-w-0 text-sm px-3 py-2.5 rounded-xl border border-gray-200 bg-transparent placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition"
+                        />
+                      </div>
+
+                      <textarea
+                        rows={4}
+                        required
+                        placeholder="What are you looking to build or improve..."
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        className="resize-none text-sm px-3 py-2.5 rounded-xl border border-gray-200 bg-transparent placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition"
+                      />
+
+                      <div className="flex flex-col gap-2">
+                        <span className="text-xs font-semibold text-gray-700">I need help with...</span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {SERVICES.map((service) => {
+                            const isSelected = selected.includes(service);
+                            return (
+                              <button
+                                key={service}
+                                type="button"
+                                onClick={() => toggleService(service)}
+                                className={`text-xs font-medium px-3 py-2 rounded-lg border transition-all cursor-pointer ${
+                                  isSelected
+                                    ? "bg-gray-100 text-black border-black font-semibold shadow-sm"
+                                    : "bg-white text-gray-700 border-gray-200 hover:border-gray-400"
+                                }`}
+                              >
+                                {service}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={sending}
+                        className="w-full bg-black text-white text-sm font-semibold py-3 rounded-2xl hover:bg-gray-800 transition-colors disabled:opacity-60 cursor-pointer shadow-md"
+                      >
+                        {sending ? "Sending..." : "Send my message"}
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
+
             </div>
           </div>
         </div>
-        
-        <div className="scroll-indicator">
-          <span>Scroll to explore</span>
-          <div className="line pulse" />
-        </div>
-      </main>
+      </div>
 
       {/* About Section - Bento Grid */}
       <section id="about" className="about-section reveal">

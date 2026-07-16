@@ -1,25 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300..700&family=Outfit:wght@100..900&display=swap');
+
+@import "tailwindcss";
 
 :root {
-  --font-main: 'Outfit', sans-serif;
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --text-muted: #a1a1aa;
-  --accent-purple: #a855f7;
-  --accent-blue: #3b82f6;
-  --gradient-primary: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --font-main: 'Inter', 'Outfit', sans-serif;
+  --bg-color: #ffffff;
+  --text-color: #0f172a;
+  --text-muted: #475569;
+  --accent-purple: #9333ea;
+  --accent-blue: #2563eb;
+  --gradient-primary: linear-gradient(135deg, #9333ea 0%, #2563eb 100%);
+  --glass-bg: rgba(248, 250, 252, 0.85);
+  --glass-border: rgba(226, 232, 240, 0.85);
+  --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.07);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  font-family: var(--font-main);
+  font-family: 'Inter', var(--font-main), sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
@@ -402,6 +406,7 @@ button {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
   border-radius: 24px;
   padding: 2.5rem;
   position: relative;
@@ -588,6 +593,7 @@ button {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
   border-radius: 24px;
   padding: 2.5rem;
   position: relative;
@@ -1046,6 +1052,7 @@ button {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
   border-radius: 24px;
   padding: 3rem;
   width: 100%;
@@ -1638,6 +1645,7 @@ a[href*="spline"],
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
   border-radius: 24px;
   padding: 2rem;
   position: relative;
@@ -1691,7 +1699,7 @@ a[href*="spline"],
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #e9d5ff;
+  color: #7e22ce;
   transition: all 0.3s ease;
 }
 
@@ -1742,6 +1750,7 @@ a[href*="spline"],
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
   border-radius: 24px;
   padding: 2.5rem;
   position: relative;
@@ -1855,7 +1864,7 @@ a[href*="spline"],
 }
 
 .cert-list li strong {
-  color: #fff;
+  color: var(--text-color);
 }
 
 @media (max-width: 900px) {
