@@ -84,6 +84,12 @@ const App = () => {
     ),
     Calendar: () => (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+    ),
+    Trophy: () => (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+    ),
+    Award: () => (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
     )
   };
 
@@ -99,8 +105,10 @@ const App = () => {
 
           <div className="nav-links desktop-only">
             <a href="#about" className="nav-link">About</a>
+            <a href="#skills" className="nav-link">Skills</a>
             <a href="#experience" className="nav-link">Experience</a>
             <a href="#projects" className="nav-link">Journey</a>
+            <a href="#awards" className="nav-link">Awards</a>
             <a href="#designs" className="nav-link">Designs</a>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
@@ -118,8 +126,10 @@ const App = () => {
       {isMenuOpen && (
         <div className="mobile-menu">
           <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
+          <a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
           <a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
           <a href="#projects" onClick={() => setIsMenuOpen(false)}>Journey</a>
+          <a href="#awards" onClick={() => setIsMenuOpen(false)}>Awards</a>
           <a href="#designs" onClick={() => setIsMenuOpen(false)}>Designs</a>
           <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
         </div>
@@ -139,7 +149,7 @@ const App = () => {
                 HI, I’M <span className="gradient-text">RAJYALAXMI</span>
               </h2>
               <p className="description">
-                A passionate Full Stack Developer focused on building impactful and innovative solutions. 
+                Motivated Computer Science student specializing in Artificial Intelligence and Machine Learning with hands-on experience in full-stack web development. Proficient in the MERN stack and modern web technologies, building scalable, user-friendly applications.
               </p>
               
               <div className="hero-actions">
@@ -182,42 +192,89 @@ const App = () => {
           <div className="bento-card intro-card card-3d">
             <div className="card-glow"></div>
             <div className="card-content">
-              <h3>B.Tech AI & ML Student</h3>
-              <p>I’m Rajyalaxmi, a B.Tech student specializing in <strong>AI & Machine Learning</strong>, passionate about building real-world solutions using technology.</p>
+              <h3>AI & ML Specialization</h3>
+              <p>Motivated Computer Science student specializing in <strong>Artificial Intelligence & Machine Learning</strong> at Geethanjali College of Engineering and Technology (CGPA: 8.2).</p>
             </div>
           </div>
 
           <div className="bento-card stack-card card-3d">
             <div className="card-glow"></div>
             <div className="card-content">
-              <h3>Full Stack Development</h3>
-              <p>Strong skills in <strong>React, Node.js, Express, MongoDB, and MySQL</strong>. I focus on creating scalable and efficient applications.</p>
+              <h3>Full-Stack & MERN Stack</h3>
+              <p>Hands-on experience building scalable, user-friendly applications using <strong>React.js, Node.js, Express, MongoDB, and Supabase</strong>.</p>
             </div>
           </div>
 
           <div className="bento-card ui-card card-3d">
             <div className="card-glow"></div>
             <div className="card-content">
-              <h3>UI/UX Design</h3>
-              <p>Interested in building clean and user-friendly interfaces with a premium touch.</p>
+              <h3>Backend & APIs</h3>
+              <p>Proficient in designing RESTful and AI-ready backend architectures using <strong>FastAPI, Flask, and Node.js</strong>.</p>
             </div>
           </div>
 
           <div className="bento-card dsa-card card-3d">
             <div className="card-glow"></div>
             <div className="card-content">
-              <h3>Algorithms</h3>
-              <p>Solid understanding of <strong>Data Structures & Algorithms</strong>. I write optimized code and enjoy solving problems.</p>
+              <h3>Problem Solving & DSA</h3>
+              <p>Strong foundation in <strong>Data Structures & Algorithms Analysis</strong>, with high academic merit (96.6% in Intermediate MPC).</p>
             </div>
           </div>
 
           <div className="bento-card ai-card card-3d">
             <div className="card-glow"></div>
             <div className="card-content">
-              <h3>Data & AI Integration</h3>
-              <p>I explore <strong>Data Analysis</strong> and integrate AI-driven features into my projects to make them smarter and more impactful.</p>
+              <h3>AI & Computer Vision Integration</h3>
+              <p>Passionate about integrating real-time computer vision and LLMs into products using <strong>Python, OpenCV, MediaPipe, TensorFlow, Hugging Face, and Llama 3</strong>.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Technical Skills Section */}
+      <section id="skills" className="skills-section reveal">
+        <h2 className="section-title">
+          TECHNICAL <span className="gradient-text">SKILLS</span>
+        </h2>
+        <div className="skills-grid">
+          {[
+            {
+              category: "Languages",
+              skills: ["Python", "Java", "C", "JavaScript", "SQL", "HTML", "CSS"]
+            },
+            {
+              category: "Frontend",
+              skills: ["React.js", "HTML5 / CSS3", "JavaScript (ES6+)"]
+            },
+            {
+              category: "Backend",
+              skills: ["Node.js", "Flask", "FastAPI"]
+            },
+            {
+              category: "Databases",
+              skills: ["MongoDB", "Supabase (PostgreSQL)", "SQL"]
+            },
+            {
+              category: "AI / ML",
+              skills: ["Matplotlib", "Llama 3 (Ollama)", "Hugging Face", "Pandas", "NumPy", "OpenCV", "MediaPipe", "TensorFlow"]
+            },
+            {
+              category: "Developer Tools",
+              skills: ["Git", "Anti-Gravity", "GitHub", "VS Code", "AWS", "Jupyter Notebook", "Google Colab", "Vercel", "Kaggle"]
+            }
+          ].map((cat, index) => (
+            <div key={index} className="skill-card card-3d">
+              <div className="card-glow"></div>
+              <div className="card-content">
+                <h3>{cat.category}</h3>
+                <div className="skill-pills">
+                  {cat.skills.map((skill, i) => (
+                    <span key={i} className="skill-pill">{skill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -339,25 +396,32 @@ const App = () => {
 
           {[
             {
-              title: "Personal Portfolio Website",
-              stack: "React, MongoDB, JavaScript, HTML, Bootstrap",
-              desc: "Developed a personal portfolio website showcasing projects like FoodMart, ATM, and MyStore. Built a responsive UI using React and Bootstrap with full-stack integration using MongoDB, focusing on user-centric design and smooth navigation.",
-              link: "https://rajyalaxmi29-github-io.vercel.app/p4",
-              icons: ["/java.jpg", "/db.jpg", "/other.jpg"]
+              title: "AI Resume Analyzer",
+              stack: "FastAPI, Python, File Uploads, Prompt Engineering, Gemini API",
+              desc: "Developed a FastAPI-based Resume Analyzer that accepts resume uploads and job descriptions, extracts resume text, and performs rule-based skill matching with ATS score calculation. Designed AI-ready prompt templates by combining resume content and job descriptions to prepare structured inputs for Gemini-based resume analysis.",
+              link: "https://github.com/Rajyalaxmi29",
+              icons: ["/python.jpg", "/other.jpg", "/db.jpg"]
+            },
+            {
+              title: "AI-Based Smart Driver Monitoring and Accident Prevention System",
+              stack: "Python, OpenCV, MediaPipe, TensorFlow",
+              desc: "Developed an AI-powered real-time driver monitoring system using Python, OpenCV, and MediaPipe to detect drowsiness, yawning, head pose, and driver distraction through computer vision techniques. Implemented a fatigue scoring system with real-time voice alerts and a live analytics dashboard displaying driver attention and blink rate.",
+              link: "https://github.com/Rajyalaxmi29",
+              icons: ["/python.jpg", "/other.jpg", "/java.jpg"]
+            },
+            {
+              title: "ProTask – Task Management System",
+              stack: "React, Supabase, Vercel, TypeScript",
+              desc: "Developed a production-ready task management application using React and TypeScript with secure user authentication, relational database integration using Supabase, and Row Level Security (RLS) for user-based data access. Built full CRUD functionality for task management with a reusable component-based architecture and deployed on Vercel.",
+              link: "https://protask-ai.vercel.app/login",
+              icons: ["/node.jpg", "/supabase.jpg", "/other.jpg"]
             },
             {
               title: "Startup & Social Innovation Platform",
               stack: "React, Node.js, Express, MongoDB, AI",
               desc: "Built a full-stack platform to support startups and social innovation initiatives with a user-friendly interface. Implemented scalable backend features and structured UI/UX for managing ideas, users, and workflows. Integrated AI-based insights and recommendation features to enhance decision-making.",
               link: "https://startupsim-new.vercel.app/",
-              icons: ["/node.jpg", "/python.jpg", "/supabase.jpg"]
-            },
-            {
-              title: "ProTask AI",
-              stack: "React, TypeScript, Supabase, PostgreSQL, Vercel",
-              desc: "Developed a full-stack task management application with secure authentication and database integration using Supabase. Implemented user-specific CRUD operations with Row Level Security (RLS) and deployed on Vercel.",
-              link: "https://protask-ai.vercel.app/login",
-              icons: ["/node.jpg", "/other.jpg", "/python.jpg"]
+              icons: ["/node.jpg", "/db.jpg", "/python.jpg"]
             }
           ].map((project, index) => (
             <div 
@@ -393,6 +457,45 @@ const App = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Certifications & Awards Section */}
+      <section id="awards" className="awards-section reveal">
+        <h2 className="section-title">
+          AWARDS & <span className="gradient-text">CERTIFICATIONS</span>
+        </h2>
+        <div className="awards-grid">
+          {/* Trophy / Award Highlight */}
+          <div className="award-card highlight-card card-3d">
+            <div className="card-glow"></div>
+            <div className="card-content">
+              <div className="award-header">
+                <span className="award-year-badge">2026</span>
+                <Icons.Trophy />
+              </div>
+              <h3 className="award-title">Runner-Up – Startup & Social Innovation Competition</h3>
+              <p className="award-desc">Hackathon Runner-Up recognition for building impactful and scalable startup solutions.</p>
+            </div>
+          </div>
+
+          {/* Certifications List */}
+          <div className="award-card cert-card card-3d">
+            <div className="card-glow"></div>
+            <div className="card-content">
+              <div className="award-header">
+                <span className="award-year-badge">2025</span>
+                <Icons.Award />
+              </div>
+              <h3 className="award-title">Professional Certifications</h3>
+              <ul className="cert-list">
+                <li><strong>MERN Stack Training</strong> — Cantilever Labs</li>
+                <li><strong>HTML & CSS</strong> — HackerRank</li>
+                <li><strong>Python</strong> — Cisco</li>
+                <li><strong>Data Analysis</strong> — Kaggle</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
